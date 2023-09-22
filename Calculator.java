@@ -164,10 +164,15 @@ public class Calculator implements ActionListener{
             textField.setText("0");
         }
         if(e.getSource() == intButton){
-            num1 = Double.parseDouble(textField.getText()) * -1.0;
+            num1 = Double.parseDouble(textField.getText()) * -1;
             textField.setText("");
-            textField.setText(num1+"");
+            if(num1%1 == 0.0){
+                int res = (int) Math.round(num1);
+                //textField.setText("");
+                textField.setText(res+"");}
+            else{
+                textField.setText(num1+"");
+            }
         }
     }
 }
-
